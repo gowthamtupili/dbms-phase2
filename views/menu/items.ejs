@@ -1,0 +1,24 @@
+<% layout('layouts/boilerplate') -%> 
+
+
+    <h1>All Items</h1>
+    <div>
+        <!-- <a href="/menu/new">Add Items</a> -->
+    </div>
+    
+    <% for (let mreview of MainReview){%>
+    <div class="card mb-3" >
+        <div class="row g-0">
+            <div class="col-md-4">
+            <img src="<%=mreview.image%> " class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title"><%= mreview.author %> </h5>
+                <p class="card-text"><%= mreview.description %> </p>
+                <!-- <a class="btn btn-primary" href="/campgrounds/<%=//campground._id%> ">View <%=//campground.title%> </a> -->
+            </div>
+            </div>
+        </div>
+        </div>
+    <% }%>

@@ -6,17 +6,17 @@
         <!-- <a href="/menu/new">Add Items</a> -->
     </div>
     
-    <% for (let mreview of MainReview){%>
+    <% for (let mitems of items){%>
     <div class="card mb-3" >
         <div class="row g-0">
             <div class="col-md-4">
-            <img src="<%=mreview.image%> " class="img-fluid rounded-start" alt="...">
+            <img src="/download.jpg " class="img-fluid rounded-start" alt="...">
             </div>
             <div class="col-md-8">
             <div class="card-body">
-                <h5 class="card-title"><%= mreview.author %> </h5>
-                <p class="card-text"><%= mreview.description %> </p>
-                <!-- <a class="btn btn-primary" href="/campgrounds/<%=//campground._id%> ">View <%=//campground.title%> </a> -->
+                <h5 class="card-title"><%= mitems.author %> </h5>
+                <p class="card-text"><%= mitems.description %> </p>
+                <a class="btn btn-primary" href="/menuitems ">View  </a>
             </div>
             </div>
         </div>

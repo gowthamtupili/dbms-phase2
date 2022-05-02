@@ -101,3 +101,13 @@ function updateCartTotal() {
     total = Math.round(total * 100) / 100
     document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total
 }
+
+var noti = document.querySelector('#cart-close');
+	var button = document.getElementsByTagName('shop-item-button');
+	for(var but of button){
+		but.addEventListener('click', (e)=>{
+			var add = Number(noti.getAttribute('data-count') || 0);
+			noti.setAttribute('data-count', add +1);
+			noti.classList.add('zero')
+        })
+    }

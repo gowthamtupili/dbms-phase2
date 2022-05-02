@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap');
 
- /*<<<<<<<<< basic layout >>>>>>>>>*/
+/*<<<<<<<<< basic layout >>>>>>>>>*/
 
 :root{
     --green:red;
@@ -595,4 +595,13 @@ header .icons #menu-bars{
     cursor: pointer;
     top: 2rem; right:3rem;
     font-size: 5rem;
+}
+
+#cart:before{
+    content: attr(data-count);
+    color: white;
+    opacity: 0;
+}
+#cart.zero:before{
+    opacity: 1;
 }

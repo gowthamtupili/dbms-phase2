@@ -15,19 +15,28 @@ app.use(methodOverride("_method"));
 
 let items = [
     {
-        author: 'dd',
+        name: 'sdaf',
+        image: 'e',
+        price: '99',
         description: 'funny!'
+
     },
     {
-        author: 'Skyler',
+        name: 'Skyler',
+        image: 'e',
+        price: '99',
         description: 'ds'
     },
     {
-        author: 'Sk8erBoi',
+        name: 'Sk8erBoi',
+        image: 'e',
+        price: '99',
         description: 'ds'
     },
     {
-        author: 'sdh',
+        name: 'sdh',
+        image: 'e',
+        price: '99',
         description: 'sadjkn'
     }
 ]

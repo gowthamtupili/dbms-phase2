@@ -1,0 +1,24 @@
+<% layout('layouts/boilerplate') -%> 
+
+
+    <h1>All Items</h1>
+    <div>
+        <!-- <a href="/menu/new">Add Items</a> -->
+    </div>
+    
+    <% for (let mitems of items){%>
+    <div class="card mb-3" >
+        <div class="row g-0">
+            <div class="col-md-4">
+            <img src="/download.jpg " class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title"><%= mitems.author %> </h5>
+                <p class="card-text"><%= mitems.description %> </p>
+                <a class="btn btn-primary" href="/menuitems ">View  </a>
+            </div>
+            </div>
+        </div>
+        </div>
+    <% }%>

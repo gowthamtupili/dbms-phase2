@@ -1,0 +1,48 @@
+<% layout('layouts/boilerplate') -%> 
+
+<div class="container">
+    <div class="row">
+        <h1 class="text-center">Update Menu Table</h1>
+        <div class="col-md-6 offset-md-3">
+            <form action="/ongoing_orders/new" method="post" id="form" novalidate class="validated-form" >
+                <div class="mb-3">
+                <label class="form-label" for="table">Table ID:</label>
+                    <input type="text" name="table_id" id="table" class="form-control" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+            
+                <div class="mb-3">
+                    <label class="form-label" for="dish_id">Dish ID:</label>
+                    <input type="text" name="dish_id" id="dish_id" class="form-control" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+
+                
+                <div class="mb-3">
+                    <label class="form-label" for="quantity">Quantity:</label>
+                    <div class="input-group mb-3">
+                        <input type="text" name="quantity" id="quantity" class="form-control" placeholder="0.00" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="mb-3">
+                    <label class="form-label" for="accepted_or_not">Accepted or Not:</label>
+                    <textarea type="text" name="accepted_or_not" id="accepted_or_not" class="form-control" required></textarea>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+
+                <button class="btn btn-success mb-3" type="submit">Submit</button>
+            </form>
+
+
+            <form action=""></form>

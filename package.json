@@ -17,10 +17,12 @@
   },
   "homepage": "https://github.com/gowthamtupili/dbms-phase2#readme",
   "dependencies": {
+    "dotenv": "^16.0.0",
     "ejs": "^3.0.2",
     "ejs-mate": "^3.0.0",
     "express": "^4.17.3",
     "method-override": "^3.0.0",
+    "mysql2": "^2.3.3",
     "nodemon": "^2.0.16"
   }
 }

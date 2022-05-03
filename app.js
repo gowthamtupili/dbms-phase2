@@ -32,38 +32,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 
 
-let items = [
-    {
-        id: 1,
-        name: 'sdaf',
-        image: 'e',
-        price: '$99',
-        description: 'funny!'
-
-    },
-    {
-        id: 2,
-        name: 'Skyler',
-        image: 'e',
-        price: '$94',
-        description: 'ds'
-    },
-    {
-        id: 3,
-        name: 'Sk8erBoi',
-        image: 'e',
-        price: '$89',
-        description: 'ds'
-    },
-    {
-        id: 4,
-        name: 'sdh',
-        image: 'e',
-        price: '$77',
-        description: 'sadjkn'
-    }
-]
-
 
 app.get('/', (req, res) => {
     res.render('home');

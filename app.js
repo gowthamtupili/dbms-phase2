@@ -82,7 +82,16 @@ app.post('/ongoing_orders/new', (req, res) => {
 })
 
 
-app.patch('/')
+app.get('/menu/:id/update', (req, res) => {
+    const { id } = req.params;
+
+})
+
+app.patch('/menu/:id/update', (req, res) => {
+    const { id } = req.params;
+    const { cost, available_or_not, dish_id } = req.body
+    connection.query(`update menu_table set cost= ${cost} available_or_not = ${available_or_not} where dish_id= ${id}`);
+})
 
 app.get('/menuitems', (req, res) => {
     res.render('menu/menuItems');

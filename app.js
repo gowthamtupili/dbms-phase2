@@ -41,9 +41,8 @@ app.get('/', (req, res) => {
 
 
 app.get('/menu', (req, res) => {
-    connection.query('SELECT * FROM menu_table', function (err, rows, fields) {
+    connection.query('SELECT * FROM menu_table', function (err, items, fields) {
     if (err) throw err
-    const items = rows;
     res.render('menu/items', { items });
     })
   })
@@ -51,9 +50,8 @@ app.get('/menu', (req, res) => {
 
 //---------------------------------api to get ongoing orders------------------------------
 app.get('/ongoing_orders', (req, res) => {
-    connection.query('SELECT * FROM ongoing_orders', function (err, rows, fields) {
+    connection.query('SELECT * FROM ongoing_orders', function (err, data, fields) {
     if (err) throw err
-    const data = rows;
     console.log(data);
 
     res.render('menu/ongoing', { data });
@@ -61,29 +59,29 @@ app.get('/ongoing_orders', (req, res) => {
   })
 
 
-app.get('/menu/:id', (req, res) => {
-    const { id } = req.params;
-    const mitem = connection.query(`SELECT * from menu_table where dish_id=${id}`);
-    console.log(mitem);
-    res.render('menu/show', { mitem })
-})
+
 
 app.get('/ongoing_orders/new', (req, res) => {
     res.render('menu/ongoing');
 })
 
 app.post('/ongoing_orders/new', (req, res) => {
-    console.log(`Request Body`);
+    // console.log(`Request Body`);
     console.log( req.body );
     const { table_id, dish_id, quantity, accepted_or_not } = req.body;
 
     connection.query(`INSERT into ongoing_orders ( table_id, dish_id, quantity, accepted_or_not ) values(${table_id}, ${dish_id}, ${quantity}, ${accepted_or_not});`)
-    res.send('success!');
+    res.redirect('/menu');
 })
 
 
-app.get('/menu/update', (req, res) => {
-    res.render('/menu/update');
+app.get('/menu/:id/update', (req, res) => {
+      connection.query('SELECT * FROM menu_table where dish_id=?',[req.params.id], function (err, foundItem, fields) {
+        if (err) throw err
+        console.log(foundItem);
+        res.render('menu/update', { foundItem });
+      })
+      
 
 })
 
@@ -95,6 +93,18 @@ app.patch('/menu/:id/update', (req, res) => {
 
 app.get('/menuitems', (req, res) => {
     res.render('menu/menuItems');
+})
+
+
+app.get('/menu/:id', (req, res) => {
+    const { id } = req.params;
+    const mitem = connection.query(`SELECT * from menu_table where dish_id=${id}`);
+    console.log(mitem);
+    res.render('menu/show', { mitem })
+})
+
+app.delete('/menu/:id', (req, res) => {
+    //-------------------------------write connection query --------------------
 })
 
 app.all("*", (req, res, next) => {

@@ -75,6 +75,25 @@ app.post('/ongoing_orders/new', (req, res) => {
 })
 
 
+app.get('/admin_login_cred', (req, res) => {
+  res.render('menu/login');
+  
+})
+
+app.post('/admin_login_cred', (req, res) => {
+  const { username, password } = req.body;
+  connection.query('SELECT * FROM admin_credentials limit 1', function (err, data, fields) {
+    if (err) throw err
+    console.log(data);
+    const data1 = data[0];
+    if(data1.username === username && data1.password === password){
+      res.render('menu/admin_dashboard');
+    }
+    })
+  
+
+})
+
 app.get('/menu/:id/update', (req, res) => {
       connection.query('SELECT * FROM menu_table where dish_id=?',[req.params.id], function (err, foundItem1, fields) {
         if (err) throw err
@@ -111,13 +130,13 @@ app.all("*", (req, res, next) => {
 });
 
 //---------------------------------api to access the ongoing orders of particular tables------------------------------
-app.get('/menusdf/:id', (req, res) => {
-    connection.query('SELECT * FROM menu_table where dish_id=?',[req.params.id], function (err, rows, fields) {
-      if (err) throw err
-        console.log(rows);
-      res.send(rows)
-    })
-  })
+// app.get('/menusdf/:id', (req, res) => {
+//     connection.query('SELECT * FROM menu_table where dish_id=?',[req.params.id], function (err, rows, fields) {
+//       if (err) throw err
+//         console.log(rows);
+//       res.send(rows)
+//     })
+//   })
 app.listen(port, () => {
     console.log(`Serving on port ${port}`);
 });

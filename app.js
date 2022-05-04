@@ -87,12 +87,15 @@ app.post('/admin_login_cred', (req, res) => {
     console.log(data);
     const data1 = data[0];
     if(data1.username === username && data1.password === password){
-      res.render('menu/admin_dashboard');
+      const table_id = 2;
+      res.render('menu/admin_dashboard', { table_id });
     }
     })
   
 
 })
+
+
 
 app.get('/menu/:id/update', (req, res) => {
       connection.query('SELECT * FROM menu_table where dish_id=?',[req.params.id], function (err, foundItem1, fields) {

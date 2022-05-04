@@ -28,7 +28,7 @@
         <a href="#about">about</a>
         <a href="#menu">menu</a>
         <!-- <a href="#review">review</a> -->
-        <a href="#order">order</a>
+
     </nav>
 
     <div class="icons">
@@ -100,25 +100,25 @@
     <h1 class="heading"> Our Menu </h1>
 
     <div class="box-container">
-        <% for(let mitems of items) {%> 
-        <div class="box">
-            <div class="image">
-                <img src="<%= mitems.img_link %> " alt="" class="shop-item-image">
-            </div>
-            <div class="content">
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
+        <% for(let mitem of items) {%> 
+            <div class="box">
+                <div class="image">
+                    <img src='<%= mitem.img_link %> '  alt="" class="shop-item-image">
                 </div>
-                <span class="shop-item-title"><%= mitems.name %> </span>
-                <p><%= mitems.description %> </p>
-                <button class="btn  shop-item-button" type="button">ADD TO CART</button>
-                <span class="price shop-item-price"><%= mitems.price %> </span>
+                <div class="content">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <span class="shop-item-title"><%= mitem.name%></span>
+                    <p><%= mitem.description %></p>
+                    <button class="btn  shop-item-button" type="button">ADD TO CART</button>
+                    <span class="price shop-item-price">₹<%= mitem.cost%></span>
+                </div>
             </div>
-        </div>
         <% } %> 
 
 
@@ -134,70 +134,6 @@
  
 
 
-<!-- order section starts  -->
-
-<section class="order" id="order">
-
-    <h3 class="sub-heading"> order now </h3>
-    <h1 class="heading"> free and fast </h1>
-
-    <form action="">
-
-        <div class="inputBox">
-            <div class="input">
-                <span>your name</span>
-                <input type="text" placeholder="enter your name">
-            </div>
-        </div>
-
-        <div class="inputBox">
-            <div class="input">
-                <span>your number</span>
-                <input type="number" placeholder="enter your number">
-            </div>
-        </div>
-
-        <div class="inputBox">
-            <div class="input">
-                <span>your Table number</span>
-                <input type="text" placeholder="enter Table number">
-            </div>
-        </div>
-        <div class="inputBox">
-        </div>
-            <!-- <div class="input">
-                <span>additional food</span>
-                <input type="test" placeholder="extra with food">
-            </div>
-        </div>
-        <div class="inputBox">
-            <div class="input">
-                <span>how musch</span>
-                <input type="number" placeholder="how many orders">
-            </div>
-            <div class="input">
-                <span>date and time</span>
-                <input type="datetime-local">
-            </div>
-        </div> -->
-        <div class="inputBox">
-            <!-- <div class="input">
-                <span>your address</span>
-                <textarea name="" placeholder="enter your address" id="" cols="30" rows="10"></textarea>
-            </div> -->
-            <div class="input">
-                <span>your message</span>
-                <textarea name="" placeholder="enter your message" id="" cols="30" rows="10"></textarea>
-            </div>
-        </div>
-
-        <input type="submit" value="order now" class="btn">
-
-    </form>
-
-</section>
-
-<!-- order section ends -->
 
 <!-- footer section starts  -->
 
@@ -209,7 +145,6 @@
             <h3>quick links</h3>
             <a href="#">about</a>
             <a href="#">menu</a>
-            <a href="#">order</a>
         </div>
 
         <div class="box">

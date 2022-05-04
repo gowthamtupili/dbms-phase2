@@ -1,0 +1,52 @@
+<% layout('layouts/boilerplate') -%> 
+
+<div class="container">
+    <div class="row">
+        <h1 class="text-center">Add New Item</h1>
+        <div class="col-md-6 offset-md-3">
+            <form action="/dish/new" method="post" id="form" novalidate class="validated-form" >
+                <div class="mb-3">
+                <label class="form-label" for="table">name</label>
+                    <input type="text" name="name" id="name" class="form-control" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+            
+                <div class="mb-3">
+                    <label class="form-label" for="description">Description</label>
+                    <input type="text" name="description" id="description" class="form-control" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+
+    
+                <div class="mb-3">
+                    <label class="form-label" for="cost">cost:</label>
+                    <div class="input-group mb-3">
+                        <input type="text" name="cost" id="cost" class="form-control" placeholder="0.00" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="mb-3">
+                    <label class="form-label" for="available_or_not">Accepted or Not:</label>
+                    <textarea type="text" name="available_or_not" id="available_or_not" class="form-control" required></textarea>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="img_link">image link</label>
+                        <input type="text" name="img_link" id="img_link" class="form-control" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                <button class="btn btn-success mb-3" type="submit">Submit</button>
+            </form>

@@ -1,0 +1,25 @@
+<% layout('layouts/boilerplate') -%> 
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">order_id</th>
+        <th scope="col">table_id</th>
+        <th scope="col">dish_id</th>
+        <th scope="col">quantity</th>
+        <th scope="col">accepted_or_not</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% for(let i of data) {%> 
+            <tr>
+                <th scope="row"><%=i.order_id%></th>
+                <td><%= i.table_id %></td>
+                <td><%=i.dish_id%></td>
+                <td><%=i.quantity%></td>
+                <td><%=i.accepted_or_not%></td>
+              </tr>
+            <% } %> 
+      
+    </tbody>
+  </table>

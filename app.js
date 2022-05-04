@@ -47,6 +47,19 @@ app.get('/menu', (req, res) => {
     })
   })
 
+  app.get('/current_orders',(req,res)=>{
+    connection.query('select * from ongoing_orders',function(err,data,fields){
+      if(err) throw err
+      res.render('menu/table',{data});
+    })
+  })
+  app.get('/orders_history',(req,res)=>{
+    connection.query('select * from Completed_orders',function(err,data,fields){
+      if(err) throw err
+      res.render('menu/history',{data});
+    })
+  })
+
 
 //---------------------------------api to get ongoing orders------------------------------
 app.get('/ongoing_orders', (req, res) => {
@@ -75,6 +88,34 @@ app.post('/ongoing_orders/new', (req, res) => {
 })
 
 
+
+app.get('/ongoing_orders/new', (req, res) => {
+  res.render('menu/ongoing');
+})
+
+app.post('/ongoing_orders/new', (req, res) => {
+  console.log( req.body );
+  const { table_id, dish_id, quantity, accepted_or_not } = req.body;
+
+  connection.query(`INSERT into ongoing_orders ( table_id, dish_id, quantity, accepted_or_not ) values(${table_id}, ${dish_id}, ${quantity}, ${accepted_or_not});`)
+  res.redirect('/menu');
+})
+
+
+app.get('/dish/new', (req, res) => {
+  res.render('menu/dish_info');
+})
+
+app.post('/dish/new', (req, res) => {
+  console.log( req.body );
+  const { name,description,cost,available_or_not,img_link } = req.body;
+
+  connection.query(`INSERT into menu_table ( name,description,cost,available_or_not,img_link) values("${name}","${description}",${cost},${available_or_not},"${img_link}");`)
+  res.redirect('/menu');
+})
+
+
+
 app.get('/admin_login_cred', (req, res) => {
   res.render('menu/login');
   
@@ -91,6 +132,8 @@ app.post('/admin_login_cred', (req, res) => {
       res.render('menu/admin_dashboard', { table_id });
     }
     })
+
+    
   
 
 })

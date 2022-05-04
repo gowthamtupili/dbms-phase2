@@ -33,14 +33,14 @@ app.use(methodOverride("_method"));
 
 
 
+// app.get('/', (req, res) => {
+//     res.render('home');
+// })
+
+
+
+
 app.get('/', (req, res) => {
-    res.render('home');
-})
-
-
-
-
-app.get('/menu', (req, res) => {
     connection.query('SELECT * FROM menu_table', function (err, items, fields) {
     if (err) throw err
     res.render('menu/items', { items });
@@ -152,8 +152,8 @@ app.get('/menu/:id/update', (req, res) => {
 
 app.patch('/menu/:id', (req, res) => {
     const { id } = req.params;
-    const { cost, available_or_not } = req.body
-    connection.query(`update menu_table set cost= ${cost}, available_or_not = ${available_or_not} where dish_id= ${id}`);
+    const { cost, description, available_or_not } = req.body
+    connection.query(`update menu_table set cost= ${cost}, description = ${description}, available_or_not = ${available_or_not} where dish_id= ${id}`);
     res.redirect('/menu');
 })
 

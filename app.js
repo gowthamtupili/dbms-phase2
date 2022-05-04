@@ -61,11 +61,18 @@ app.get('/ongoing_orders', (req, res) => {
   })
 
 
-app.get('/menu/:id', (req, res) => {
+  app.get('/menu/:id', (req, res) => {
     const { id } = req.params;
     const mitem = connection.query(`SELECT * from menu_table where dish_id=${id}`);
     console.log(mitem);
-    res.render('menu/show', { mitem })
+   // res.render('menu/show', { mitem })
+})
+
+app.get('/admin_ligin_credentials', (req, res) => {
+  const { id } = req.params;
+  const mitem = connection.query(`SELECT * from admin_credentials `);
+  console.log(mitem);
+ // res.render('menu/show', { mitem })
 })
 
 app.get('/ongoing_orders/new', (req, res) => {
@@ -76,22 +83,17 @@ app.post('/ongoing_orders/new', (req, res) => {
     console.log(`Request Body`);
     console.log( req.body );
     const { table_id, dish_id, quantity, accepted_or_not } = req.body;
-
     connection.query(`INSERT into ongoing_orders ( table_id, dish_id, quantity, accepted_or_not ) values(${table_id}, ${dish_id}, ${quantity}, ${accepted_or_not});`)
     res.send('success!');
 })
 
-
-app.get('/menu/update', (req, res) => {
-    res.render('/menu/update');
-
+app.patch('/ongoing_orders/update', (req, res) => {
+  // connection.query(`update menu_table set table_id=150`);
+  res.send('success!');
 })
 
-app.patch('/menu/:id/update', (req, res) => {
-    const { id } = req.params;
-    const { cost, available_or_not } = req.body
-    connection.query(`update menu_table set cost= ${cost} available_or_not = ${available_or_not} where dish_id= ${id}`);
-})
+
+app.patch('/')
 
 app.get('/menuitems', (req, res) => {
     res.render('menu/menuItems');

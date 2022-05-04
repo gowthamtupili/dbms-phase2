@@ -76,19 +76,20 @@ app.post('/ongoing_orders/new', (req, res) => {
 
 
 app.get('/menu/:id/update', (req, res) => {
-      connection.query('SELECT * FROM menu_table where dish_id=?',[req.params.id], function (err, foundItem, fields) {
+      connection.query('SELECT * FROM menu_table where dish_id=?',[req.params.id], function (err, foundItem1, fields) {
         if (err) throw err
-        console.log(foundItem);
-        res.render('menu/update', { foundItem });
+        console.log(foundItem1);
+        res.render('menu/update', { foundItem1 });
       })
       
 
 })
 
-app.patch('/menu/:id/update', (req, res) => {
+app.patch('/menu/:id', (req, res) => {
     const { id } = req.params;
     const { cost, available_or_not } = req.body
-    connection.query(`update menu_table set cost= ${cost} available_or_not = ${available_or_not} where dish_id= ${id}`);
+    connection.query(`update menu_table set cost= ${cost}, available_or_not = ${available_or_not} where dish_id= ${id}`);
+    res.redirect('/menu');
 })
 
 app.get('/menuitems', (req, res) => {
@@ -103,9 +104,7 @@ app.get('/menu/:id', (req, res) => {
     res.render('menu/show', { mitem })
 })
 
-app.delete('/menu/:id', (req, res) => {
-    //-------------------------------write connection query --------------------
-})
+
 
 app.all("*", (req, res, next) => {
     res.send(`Page not found`);

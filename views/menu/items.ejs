@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     <!-- custom css file link  -->
-    <link rel="stylesheet" href="./restaurent.css">
+    <link rel="stylesheet" href="/stylesheets/restaurant.css">
 
 </head>
 <body>
@@ -25,8 +23,12 @@
     <a href="https://maps.app.goo.gl/ggAERiMpfSKLp8Wk6" target="_blank" class="logo"><i class="fas fa-utensils"></i> IIITDM.</a>
 
     <nav class="navbar">
+        <!-- <a class="active" href="#home">home</a>
+        <a href="#dishes">dishes</a> -->
         <a href="#about">about</a>
         <a href="#menu">menu</a>
+        <!-- <a href="#review">review</a> -->
+
     </nav>
 
     <div class="icons">
@@ -47,7 +49,10 @@
     <i class="fas fa-times" id="close"></i>
 </form>
 
-<!-- header section starts-->
+
+
+
+<!-- about section starts  -->
 
 <section class="about" id="about">
 
@@ -66,8 +71,8 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, nemo. Sit porro illo eos cumque deleniti iste alias, eum natus.</p>
             <div class="icons-container">
                 <div class="icons">
-                    <i class="fas fa-hand-sparkles"></i>
-                    <span>Contactless Order</span>
+                    <i class="fas fa-shipping-fast"></i>
+                    <span>free delivery</span>
                 </div>
                 <div class="icons">
                     <i class="fas fa-dollar-sign"></i>
@@ -87,7 +92,6 @@
 
 <!-- about section ends -->
 
-
 <!-- menu section starts  -->
 
 <section class="menu" id="menu">
@@ -96,10 +100,10 @@
     <h1 class="heading"> Our Menu </h1>
 
     <div class="box-container">
-        <% for(let item of items) { %>
+        <% for(let mitem of items) {%> 
             <div class="box">
                 <div class="image">
-                    <img src="<%= item.img_link %> " alt="" class="shop-item-image">
+                    <img src='<%= mitem.img_link %> '  alt="" class="shop-item-image">
                 </div>
                 <div class="content">
                     <div class="stars">
@@ -109,18 +113,27 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star-half-alt"></i>
                     </div>
-                    <span class="shop-item-title"><span class="veg-non-veg">🟩 </span> <%= item.name %> </span>
-                    <p><%= item.description %> </p>
+                    <span class="shop-item-title"><%= mitem.name%></span>
+                    <p><%= mitem.description %></p>
                     <button class="btn  shop-item-button" type="button">ADD TO CART</button>
-                    <span class="price shop-item-price">$<%= item.price %> </span>
+                    <span class="price shop-item-price">₹<%= mitem.cost%></span>
                 </div>
             </div>
         <% } %> 
+
+
+
     </div>
 
 </section>
 
 <!-- menu section ends -->
+
+
+
+ 
+
+
 
 <!-- footer section starts  -->
 
@@ -132,7 +145,6 @@
             <h3>quick links</h3>
             <a href="#">about</a>
             <a href="#">menu</a>
-            <a href="#">order</a>
         </div>
 
         <div class="box">
@@ -159,8 +171,6 @@
 
 <!-- footer section ends -->
 
-<!-- cart section starts -->
-
 <section id="cart">
     <i class="fas fa-times" id="cart-close"></i>
     <h2 class="section-header">CART</h2>
@@ -178,18 +188,16 @@
     <button class="btn btn-purchase" type="button">ORDER</button>
 </section>
 
-<!-- cart section ends -->
-
 <!-- loader part  -->
-<div  class="loader-container">
+<div class="loader-container">
     <img src="images/Food Loading.gif" alt="">
 </div>
 
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
 <!-- custom js file link  -->
-<script src="./restaurent.js"></script>
-<script src="./cart.js"></script>
+<script src="javascripts/restaurent.js"></script>
+<script src="javascripts/cart.js"></script>
 
 
 </body>

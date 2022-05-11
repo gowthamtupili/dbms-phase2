@@ -50,7 +50,7 @@ app.get('/', (req, res) => {
   app.get('/current_orders',(req,res)=>{
     connection.query('select * from ongoing_orders',function(err,data,fields){
       if(err) throw err
-      res.render('menu/table',{data});
+      res.render('menu/table',{ data });
     })
   })
   app.get('/orders_history',(req,res)=>{
